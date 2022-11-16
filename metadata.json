@@ -1,0 +1,8 @@
+{
+  "name": "Carrier AWS integration",
+  "version": "0.1",
+  "module": "plugins.aws_integration",
+  "extract": false,
+  "depends_on": ["integrations"],
+  "init_after": []
+}

@@ -1,0 +1,21 @@
+{% set integration_name = 'aws_integration' %}
+{% set display_name = 'Amazon' %}
+{#{% set show_test_connection = True %}#}
+
+{% set default_template = default_template %}
+
+<add-integration-button
+    integration_name="{{ integration_name }}"
+    display_name="{{ display_name }}"
+    logo="{{ '<img src="%s"></img>' | format(url_for('%s.static' | format(integration_name), filename='logo.svg')) }}"
+></add-integration-button>
+
+
+<aws-integration
+        instance_name="{{ integration_name }}"
+        @register="register"
+
+        display_name="{{ display_name }}"
+        default_template="{{ default_template | safe }}"
+></aws-integration>
+
