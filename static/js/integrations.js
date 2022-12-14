@@ -1,5 +1,6 @@
 const AwsIntegration = {
     delimiters: ['[[', ']]'],
+    props: ['instance_name', 'display_name'],
     template: `
 <div
         :id="modal_id"
