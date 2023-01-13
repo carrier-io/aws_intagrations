@@ -1,6 +1,7 @@
 const AwsIntegration = {
     delimiters: ['[[', ']]'],
-    props: ['instance_name', 'display_name'],
+    props: ['instance_name', 'display_name', 'logo_src', 'section_name'],
+    emits: ['update'],
     template: `
 <div
         :id="modal_id"
@@ -104,6 +105,7 @@ const AwsIntegration = {
                 project_id,
                 description,
                 is_default,
+                status
             } = this
             return {
                 aws_access_key,
@@ -115,6 +117,7 @@ const AwsIntegration = {
                 project_id,
                 description,
                 is_default,
+                status
             }
         },
         modal() {
@@ -150,7 +153,7 @@ const AwsIntegration = {
                 this.is_fetching = false
                 if (response.ok) {
                     this.modal.modal('hide')
-                    location.reload()
+                    this.$emit('update', {...this.$data, section_name: this.section_name})
                 } else {
                     this.handleError(response)
                 }
@@ -179,7 +182,7 @@ const AwsIntegration = {
                 this.is_fetching = false
                 if (response.ok) {
                     this.modal.modal('hide')
-                    location.reload()
+                    this.$emit('update', {...this.$data, section_name: this.section_name})
                 } else {
                     this.handleError(response)
                 }
@@ -193,7 +196,7 @@ const AwsIntegration = {
                 this.is_fetching = false
 
                 if (response.ok) {
-                    location.reload()
+                    this.$emit('update', {...this.$data, section_name: this.section_name})
                 } else {
                     this.handleError(response)
                     alertMain.add(`
@@ -223,6 +226,7 @@ const AwsIntegration = {
             id: null,
             pluginName: 'aws_integration',
             api_base: '/api/v1/integrations/',
+            status: integration_status.success,
         })
     }
 }
