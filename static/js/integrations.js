@@ -21,43 +21,40 @@ const AwsIntegration = {
     >
         <template #body>
             <div class="form-group">
-                <h9>Access Key</h9>
+                <p class="font-h5 font-semibold mb-1">Access Key</p>
                 <input type="text" 
                        v-model="aws_access_key" 
                        class="form-control form-control-alternative"
                        placeholder="Access key for your IAM user"
                        :class="{ 'is-invalid': error.aws_access_key }">
                 <div class="invalid-feedback">[[ error.aws_access_key ]]</div>
-                <h9>Secret Access Key </h9>
+                <p class="font-h5 font-semibold mb-1 mt-3">Secret Access Key </p>
                  <SecretFieldInput 
                         v-model="aws_secret_access_key"
                         placeholder="Secret access key for your IAM user"
                  />
                 <div class="invalid-feedback">[[ error.aws_secret_access_key ]]</div>
-                <h9>AWS Region</h9>
+                <p class="font-h5 font-semibold mb-1 mt-3">AWS Region</p>
                 <input type="text" class="form-control form-control-alternative"
                        v-model="region_name"
                        placeholder="AWS region, for example: eu-central-1"
                        :class="{ 'is-invalid': error.region_name }">
                 <div class="invalid-feedback">[[ error.region_name ]]</div>
                 
-                <h9>Security groups</h9>
-                <p><h13>Optional</h13></p>
+                <p class="font-h5 font-semibold mb-1 mt-3">Security groups<span class="text-gray-600 font-h6 font-weight-400 ml-1">(optional)</span></p>
                 <input type="text" class="form-control form-control-alternative"
                        v-model="security_groups"
                        placeholder="AWS security groups, coma-separated list"
                        :class="{ 'is-invalid': error.security_groups }">
                 <div class="invalid-feedback">[[ error.security_groups ]]</div>
                 
-                <h9>Image ID</h9>
-                <p><h13>Optional</h13></p>
+                <p class="font-h5 font-semibold mb-1 mt-3">Image ID<span class="text-gray-600 font-h6 font-weight-400 ml-1">(optional)</span></p>
                 <input type="text" class="form-control form-control-alternative"
                        v-model="image_id"
                        placeholder="AWS AMI ID for ec2 fleet"
                        :class="{ 'is-invalid': error.image_id }">
                 <div class="invalid-feedback">[[ error.image_id ]]</div>
-                <h9>Key pair name</h9>                
-                <p><h13>Optional</h13></p>
+                <p class="font-h5 font-semibold mb-1 mt-3">Key pair name<span class="text-gray-600 font-h6 font-weight-400 ml-1">(optional)</span></p>                
                 <input type="text" class="form-control form-control-alternative"
                        v-model="key_name"
                        placeholder="Key pair name"
