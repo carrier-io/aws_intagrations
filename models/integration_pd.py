@@ -49,6 +49,7 @@ class InstanceType(str, Enum):
 
 class PerformanceBackendTestModel(IntegrationModel):
     id: int
+    project_id: Optional[int]
     instance_type: InstanceType
     cpu_cores_limit: int
     memory_limit: int
