@@ -191,7 +191,7 @@ const AwsIntegration = {
         },
         delete() {
             this.is_fetching = true
-            fetch(this.api_url + this.id, {
+            fetch(this.api_url + this.project_id + '/' + this.id, {
                 method: 'DELETE',
             }).then(response => {
                 this.is_fetching = false
