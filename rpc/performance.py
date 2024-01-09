@@ -28,6 +28,9 @@ class RPC:
     @rpc_tools.wrap_exceptions(RuntimeError)
     def backend_make_execution_json_config(self, integration_data: dict) -> dict:
         """ Prepare execution_json for this integration """
+        integration = self.context.rpc_manager.call.integrations_get_by_id(integration_data["project_id"], integration_data["id"])
+        integration_data["aws_access_key"] = integration.settings["aws_access_key"]
+        integration_data["aws_secret_access_key"] = integration.settings["aws_secret_access_key"]["value"]
         return integration_data
 
     @web.rpc(f'ui_performance_test_create_integration_validate_{integration_name}')
