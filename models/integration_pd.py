@@ -16,8 +16,8 @@ class IntegrationModel(BaseModel):
     image_id: Optional[str]
     key_name: Optional[str]
 
-    def check_connection(self) -> bool:
-        aws_secret_access_key = self.aws_secret_access_key.unsecret(session_project.get())
+    def check_connection(self, project_id=None) -> bool:
+        aws_secret_access_key = self.aws_secret_access_key.unsecret(project_id)
 
         ec2 = boto3.client('ec2', aws_access_key_id=self.aws_access_key,
                            aws_secret_access_key=aws_secret_access_key,
