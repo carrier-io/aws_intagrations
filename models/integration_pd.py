@@ -55,6 +55,7 @@ class PerformanceBackendTestModel(IntegrationModel):
     memory_limit: int
     concurrency: int
     subnet_id: Optional[str]
+    ec2_instance_type: Optional[str]
 
     class Config:
         use_enum_values = True
